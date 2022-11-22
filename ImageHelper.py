@@ -12,7 +12,7 @@ class ImageHelper:
         return img
     
     @staticmethod
-    def get_img_grey(img):
+    def get_img_gray(img):
         img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         return img_gray
     

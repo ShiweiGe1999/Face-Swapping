@@ -50,7 +50,7 @@ class FaceDetector:
     @staticmethod
     def get_img_landmarks_polygon_mask_and_face(img_path, plot_landmarks_on_img=False, draw_convex_polygon_on_img=False):
         img = ImageHelper.read_img(img_path)
-        img_gray = ImageHelper.get_img_grey(img)
+        img_gray = ImageHelper.get_img_gray(img)
         
         face_detector = FaceDetector(img, img_gray)
         all_landmarks = face_detector.get_landmarks()
@@ -71,7 +71,7 @@ class FaceDetector:
     @staticmethod
     def get_img_img2_gray_landmakrs_polygon(img_path, plot_landmarks_on_img=False):
         img = ImageHelper.read_img(img_path)
-        img_gray = ImageHelper.get_img_grey(img)
+        img_gray = ImageHelper.get_img_gray(img)
         face_detector = FaceDetector(img, img_gray)
         all_landmarks = face_detector.get_landmarks()
         landmarks = all_landmarks[0]
