@@ -33,7 +33,7 @@ class FaceDetector:
 
     def plot_landmarks(self, landmarks):
         for x, y in landmarks:
-            cv2.circle(self.img, (x, y), 3, (0, 0, 255), -1)
+            cv2.circle(self.img, (x, y), 3, (0, 0, 255), 3)
         
     def get_convex_polygon(self, landmarks):
         return cv2.convexHull(landmarks)

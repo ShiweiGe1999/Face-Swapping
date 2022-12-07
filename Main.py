@@ -48,16 +48,22 @@ class Main:
         result = FaceSwaper.get_swapped_res(img2, img2_gray, polygon2, new_face)
 
         cv2.imshow("Result", result)
-        
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        # cv2.imshow("img1", img1)
+        # cv2.imshow("img2", img2)
+        while True:
+            k = cv2.waitKey(0) & 0xFF
+            if k == 27:
+                cv2.destroyAllWindows()
+                break
         
     @staticmethod
     def run_pipeline_video(img_path_from, video_path_to):
         # capture the video
         cap = cv2.VideoCapture(video_path_to)
+        frame_width = int(cap.get(3))
+        frame_height = int(cap.get(4))
+        out = cv2.VideoWriter('build/output.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 10, (frame_width,frame_height))
         # Step 1: Detect for face and get landmarks from the first image
-        print(img_path_from, video_path_to)
         img1, landmarks1, polygon1, _, _ = FaceDetector.get_img_landmarks_polygon_mask_and_face(
             img_path_from)
              
@@ -80,9 +86,8 @@ class Main:
             
             # Step 5: Put the generated face area to the second image
             result = FaceSwaper.get_swapped_res(img2, img2_gray, polygon2, new_face)
-
             cv2.imshow("Result", result)
-            
+            out.write(result)
             key = cv2.waitKey(1)
             if key == 27:
                 break
