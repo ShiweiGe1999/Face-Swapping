@@ -6,6 +6,10 @@
 
 > Here is a link to our final presentation video [Presentation Video](https://drive.google.com/file/d/1mIwyoQ0Jw0kGeevDIudSKS6MQDG9W6VN/view?usp=share_link)
 
+> [Report PDF](FaceSwapping_mid.pdf)
+
+> [PPT Link](Final-Demo.pptx)
+
 ## Package Requirements
 
 Make sure you installed the following dependencys
